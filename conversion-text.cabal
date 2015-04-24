@@ -1,7 +1,7 @@
 name:
   conversion-text
 version:
-  1.0.0.0
+  1.0.0.1
 synopsis:
   "Conversion" instances for the "text" library 
 category:
@@ -53,6 +53,6 @@ library
     bytestring == 0.10.*,
     -- 
     conversion == 1.*,
-    conversion-bytestring == 1.0.0.*,
+    conversion-bytestring >= 1.0.0.1 && < 1.0.1,
     --
     base-prelude >= 0.1.19 && < 0.2
