@@ -1,4 +1,54 @@
 {-# LANGUAGE CPP #-}
+-- |
+-- This module exports orphan 'Conversion' instances for the types
+-- of the \"text\" library.
+-- 
+-- It is meant to be used in combination with
+-- the <http://hackage.haskell.org/package/conversion "conversion">
+-- library. E.g.:
+-- 
+-- >import Conversion
+-- >import Conversion.Text
+-- 
+-- This module exports the following instances:
+-- 
+-- * @instance Alternative f => Conversion Data.ByteString.Builder.Builder (f Data.Text.Lazy.Builder)@
+-- * @instance Alternative f => Conversion Data.ByteString.Builder.Builder (f Data.Text.Lazy.Text)@
+-- * @instance Alternative f => Conversion Data.ByteString.Builder.Builder (f Data.Text.Text)@
+-- * @instance Alternative f => Conversion Data.ByteString.ByteString (f Data.Text.Lazy.Builder)@
+-- * @instance Alternative f => Conversion Data.ByteString.ByteString (f Data.Text.Lazy.Text)@
+-- * @instance Alternative f => Conversion Data.ByteString.ByteString (f Data.Text.Text)@
+-- * @instance Alternative f => Conversion Data.ByteString.Lazy.ByteString (f Data.Text.Lazy.Builder)@
+-- * @instance Alternative f => Conversion Data.ByteString.Lazy.ByteString (f Data.Text.Lazy.Text)@
+-- * @instance Alternative f => Conversion Data.ByteString.Lazy.ByteString (f Data.Text.Text)@
+-- * @instance Conversion Char Data.Text.Lazy.Builder@
+-- * @instance Conversion Char Data.Text.Lazy.Text@
+-- * @instance Conversion Char Data.Text.Text@
+-- * @instance Conversion Data.ByteString.ByteString (Either Data.Text.Encoding.Error.UnicodeException Data.Text.Lazy.Text)@
+-- * @instance Conversion Data.ByteString.ByteString (Either Data.Text.Encoding.Error.UnicodeException Data.Text.Text)@
+-- * @instance Conversion Data.ByteString.Lazy.ByteString (Either Data.Text.Encoding.Error.UnicodeException Data.Text.Lazy.Text)@
+-- * @instance Conversion Data.ByteString.Lazy.ByteString (Either Data.Text.Encoding.Error.UnicodeException Data.Text.Text)@
+-- * @instance Conversion Data.Text.Lazy.Builder Data.ByteString.Builder.Builder@
+-- * @instance Conversion Data.Text.Lazy.Builder Data.ByteString.ByteString@
+-- * @instance Conversion Data.Text.Lazy.Builder Data.ByteString.Lazy.ByteString@
+-- * @instance Conversion Data.Text.Lazy.Builder Data.Text.Lazy.Text@
+-- * @instance Conversion Data.Text.Lazy.Builder Data.Text.Text@
+-- * @instance Conversion Data.Text.Lazy.Builder String@
+-- * @instance Conversion Data.Text.Lazy.Text Data.ByteString.Builder.Builder@
+-- * @instance Conversion Data.Text.Lazy.Text Data.ByteString.ByteString@
+-- * @instance Conversion Data.Text.Lazy.Text Data.ByteString.Lazy.ByteString@
+-- * @instance Conversion Data.Text.Lazy.Text Data.Text.Lazy.Builder@
+-- * @instance Conversion Data.Text.Lazy.Text Data.Text.Text@
+-- * @instance Conversion Data.Text.Lazy.Text String@
+-- * @instance Conversion Data.Text.Text Data.ByteString.Builder.Builder@
+-- * @instance Conversion Data.Text.Text Data.ByteString.ByteString@
+-- * @instance Conversion Data.Text.Text Data.ByteString.Lazy.ByteString@
+-- * @instance Conversion Data.Text.Text Data.Text.Lazy.Builder@
+-- * @instance Conversion Data.Text.Text Data.Text.Lazy.Text@
+-- * @instance Conversion Data.Text.Text String@
+-- * @instance Conversion String Data.Text.Lazy.Builder@
+-- * @instance Conversion String Data.Text.Lazy.Text@
+-- * @instance Conversion String Data.Text.Text@
 module Conversion.Text () where
 
 import BasePrelude
