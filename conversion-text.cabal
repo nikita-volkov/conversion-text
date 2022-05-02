@@ -49,7 +49,7 @@ library
     Conversion.Text
   build-depends:
     -- 
-    text >= 1 && < 2,
+    text >= 1 && < 3,
     bytestring == 0.10.*,
     -- 
     conversion == 1.*,
